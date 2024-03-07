@@ -1,0 +1,102 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: market_id
+    type: float
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: created_at
+    type: timestamp
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: actual_delivery_time
+    type: timestamp
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: store_id
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: store_primary_category
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: order_protocol
+    type: float
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: total_items
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: subtotal
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: num_distinct_items
+    type: integer
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: min_item_price
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: max_item_price
+    type: long
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: total_onshift_partners
+    type: float
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: total_busy_partners
+    type: float
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: total_outstanding_orders
+    type: float
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
