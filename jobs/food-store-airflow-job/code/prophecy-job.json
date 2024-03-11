@@ -1,0 +1,88 @@
+{
+  "metainfo" : {
+    "type" : "Prophecy",
+    "fabricId" : "10209",
+    "jobId" : "jobs/food-store-airflow-job",
+    "name" : "food-store-airflow-job",
+    "dagName" : "1arQFrEfmVkGuyzjuXLQ0g_",
+    "schedule" : "0/5 * * * *",
+    "enabled" : false,
+    "alerting" : {
+      "emails" : "",
+      "onStart" : false,
+      "onSuccess" : false,
+      "onFailure" : false
+    },
+    "maxConcurrentRuns" : 1,
+    "processDefaultSettings" : {
+      "ignore_first_depends_on_past" : true,
+      "pool" : "OJMmpjio",
+      "do_xcom_push" : true
+    },
+    "availableFabrics" : [ {
+      "id" : "10209",
+      "name" : "airflow_demo",
+      "trialStartDate" : 1710138154043
+    } ],
+    "endDate" : "2024-04-01",
+    "catchup" : true,
+    "scheduleTimeZone" : "UTC",
+    "dagParams" : {
+      "instances" : {
+        "default" : { }
+      },
+      "params" : { },
+      "selected" : "default"
+    },
+    "airflowFunctions" : [ ],
+    "dynamicPipelineStatus" : {
+      "databricks" : false,
+      "dataproc" : false,
+      "emr" : false
+    }
+  },
+  "processes" : {
+    "bEBUTbeKDAILiFQDHb1u7$$gquRPMtJTrKxxqKHmcP11" : {
+      "id" : "bEBUTbeKDAILiFQDHb1u7$$gquRPMtJTrKxxqKHmcP11",
+      "component" : "Pipeline",
+      "metadata" : {
+        "label" : "airflow_pipeline",
+        "slug" : "airflow_pipeline",
+        "x" : -660,
+        "y" : -300
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "y1FIH1WQ3GeVVtydZMKxK$$v61wA2Bm1UsZ4ycJ3d03k",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "K4NueYg2iM0X-GUA5BCcp$$TefIlXwxy_duSriLXyiTy",
+          "slug" : ""
+        } ]
+      },
+      "settings" : { },
+      "properties" : {
+        "runJson" : null,
+        "databricksConnId" : "",
+        "clusterSize" : "10061/small_config_cluster_for_dev",
+        "configurations" : {
+          "schema" : [ ],
+          "instances" : {
+            "rainforest_biz_project" : [ "default" ]
+          },
+          "overrides" : { },
+          "selectedInstance" : "default"
+        },
+        "taskId" : null,
+        "pipelineId" : {
+          "type" : "literal",
+          "value" : "pipelines/enrich_accounts"
+        }
+      },
+      "connections" : [ ],
+      "processes" : { }
+    }
+  },
+  "connections" : [ ]
+}

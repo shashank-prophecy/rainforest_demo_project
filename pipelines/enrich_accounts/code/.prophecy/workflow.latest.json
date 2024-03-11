@@ -72,6 +72,18 @@
     "sourcePort" : "GKSgTYtCX-HGscHLqZYPt$$d-9YQsypOeR3P6a8yliRG",
     "target" : "AbPaxjd7101QirBvqmAC4$$otlrKBdD7baYVQbR1IXla",
     "targetPort" : "nyAaWmqZoqPWEwnLJNqXL$$miNXKThNrDOM22cG2ZAmd"
+  }, {
+    "id" : "kbsYSQVDK_50wpOfbbQ9L$$tdeCSJ1CgIRLjtrPPfgHz",
+    "source" : "AbPaxjd7101QirBvqmAC4$$otlrKBdD7baYVQbR1IXla",
+    "sourcePort" : "YuYX6zHtE6n_yAYwpMV7B$$RToTFwG1HwZs_cdiF651F",
+    "target" : "q9kGDpps6d5dKb6UzgzD3$$AmF1nvtxwuWda50kpFu7d",
+    "targetPort" : "mbz_0LZvJun4hh4HRn2e2$$9WUL34NzkX-bRJS-jYLPj"
+  }, {
+    "id" : "y0ZzlyU4leQh8awSF8_yu$$ZO0LsaeWqFC__CLIl0SNH",
+    "source" : "q9kGDpps6d5dKb6UzgzD3$$AmF1nvtxwuWda50kpFu7d",
+    "sourcePort" : "UM6tqykP-n3xB32LDXSKY$$hz2VM49TuJIB1KDogViHw",
+    "target" : "SVs-YiZ1VOWohhB4aHaZi$$5fZm3DkMoRIT3T3-93j5x",
+    "targetPort" : "VKg85ggKPu5XSzq6N1OMR$$R5TgcPpOlmFi6LrlA3aQC"
   } ],
   "processes" : {
     "bPnVv8Gb2kZw4qno85BYz$$l4va9n-fIwkuNNQQD4P1N" : {
@@ -80,8 +92,8 @@
       "metadata" : {
         "label" : "food_dataset",
         "slug" : "food_dataset",
-        "x" : -2060,
-        "y" : -640,
+        "x" : -2380,
+        "y" : -660,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -105,10 +117,10 @@
       "id" : "AbPaxjd7101QirBvqmAC4$$otlrKBdD7baYVQbR1IXla",
       "component" : "Reformat",
       "metadata" : {
-        "label" : "Reformat_1",
-        "slug" : "Reformat_1",
-        "x" : -1840,
-        "y" : -640,
+        "label" : "change_data_types",
+        "slug" : "change_data_types",
+        "x" : -2160,
+        "y" : -660,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -260,14 +272,241 @@
       },
       "properties" : {
         "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
-        "expressions" : [ ],
+        "expressions" : [ {
+          "target" : "market_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "market_id"
+          },
+          "description" : ""
+        }, {
+          "target" : "store_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "store_id"
+          },
+          "description" : ""
+        }, {
+          "target" : "total_items",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "total_items"
+          },
+          "description" : ""
+        }, {
+          "target" : "subtotal",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "subtotal"
+          },
+          "description" : ""
+        }, {
+          "target" : "created_date",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "CAST(created_at AS DATE)"
+          },
+          "description" : ""
+        } ],
         "importString" : "",
         "activeTab" : "expressions",
-        "columnsSelector" : [ ]
+        "columnsSelector" : [ "nyAaWmqZoqPWEwnLJNqXL$$miNXKThNrDOM22cG2ZAmd##market_id", "nyAaWmqZoqPWEwnLJNqXL$$miNXKThNrDOM22cG2ZAmd##store_id", "nyAaWmqZoqPWEwnLJNqXL$$miNXKThNrDOM22cG2ZAmd##total_items", "nyAaWmqZoqPWEwnLJNqXL$$miNXKThNrDOM22cG2ZAmd##created_at", "nyAaWmqZoqPWEwnLJNqXL$$miNXKThNrDOM22cG2ZAmd##subtotal" ]
       },
       "componentInfo" : {
         "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.4&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "q9kGDpps6d5dKb6UzgzD3$$AmF1nvtxwuWda50kpFu7d" : {
+      "id" : "q9kGDpps6d5dKb6UzgzD3$$AmF1nvtxwuWda50kpFu7d",
+      "component" : "Aggregate",
+      "metadata" : {
+        "label" : "items_subtotal_by_date_and_store",
+        "slug" : "items_subtotal_by_date_and_store",
+        "x" : -1980,
+        "y" : -660,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "mbz_0LZvJun4hh4HRn2e2$$9WUL34NzkX-bRJS-jYLPj",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "market_id",
+              "type" : "float",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "store_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "total_items",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "subtotal",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "created_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "UM6tqykP-n3xB32LDXSKY$$hz2VM49TuJIB1KDogViHw",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "allIns" : false,
+        "doPivot" : false,
+        "aggregate" : [ {
+          "target" : "total_items",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "sum(total_items)"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "subtotal",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "sum(subtotal)"
+          },
+          "description" : "",
+          "_row_id" : null
+        } ],
+        "allowSelection" : true,
+        "pivotColumn" : null,
+        "pivotValues" : [ ],
+        "activeTab" : "aggregate",
+        "columnsSelector" : [ "mbz_0LZvJun4hh4HRn2e2$$9WUL34NzkX-bRJS-jYLPj##total_items", "mbz_0LZvJun4hh4HRn2e2$$9WUL34NzkX-bRJS-jYLPj##subtotal", "mbz_0LZvJun4hh4HRn2e2$$9WUL34NzkX-bRJS-jYLPj##created_date", "mbz_0LZvJun4hh4HRn2e2$$9WUL34NzkX-bRJS-jYLPj##store_id" ],
+        "groupBy" : [ {
+          "target" : "created_date",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "created_date"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "store_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "store_id"
+          },
+          "description" : "",
+          "_row_id" : null
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.4&projectSubscriptionProjectId=12654&path=gems/Aggregate",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "SVs-YiZ1VOWohhB4aHaZi$$5fZm3DkMoRIT3T3-93j5x" : {
+      "id" : "SVs-YiZ1VOWohhB4aHaZi$$5fZm3DkMoRIT3T3-93j5x",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "store_level_aggregation",
+        "slug" : "store_level_aggregation",
+        "x" : -1760,
+        "y" : -660,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "VKg85ggKPu5XSzq6N1OMR$$R5TgcPpOlmFi6LrlA3aQC",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "created_date",
+              "type" : "date",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "store_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "total_items",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "subtotal",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/store_level_aggregation"
       }
     }
   },

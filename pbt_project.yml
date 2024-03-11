@@ -22,7 +22,8 @@ pipelines:
     datasets:
       inputs:
       - datasets/food_dataset
-      outputs: []
+      outputs:
+      - datasets/store_level_aggregation
     subgraphs: []
     dependencies: {}
 datasets:
@@ -39,8 +40,44 @@ datasets:
         description: ''
         author: shashank@prophecy.io
         createdAt: '2024-03-06 11:00:09'
+  datasets/store_level_aggregation:
+    name: store_level_aggregation
+    description: ''
+    author: shashank@prophecy.io
+    createdAt: '2024-03-11 05:35:20'
+    mode: batch
+    physicalDatasets:
+      dev:
+        fabricId: 10061
+        datasetType: Database
+        description: ''
+        author: shashank@prophecy.io
+        createdAt: '2024-03-11 05:35:20'
 templates: {}
-jobs: {}
+jobs:
+  jobs/food-store-airflow-job:
+    name: food-store-airflow-job
+    description: ''
+    fabricUID: 10209
+    scheduler:
+      Prophecy: {}
+    cloudProvider: null
+    jobSize: null
+    scheduleCron: 0/5 * * * *
+    timeout: null
+    alerting:
+      emails: ''
+      onStart: false
+      onSuccess: false
+      onFailure: false
+    pipelines: []
+    jobClusterMode:
+      clusterMode:
+        Single: {}
+      clusterId: null
+    enabled: null
+    createdAt: '2024-03-11 06:49:21'
+    author: shashank@prophecy.io
 gemContainer:
   languageVersion: '3.10'
   gemLibsVersion: 1.3.4.0

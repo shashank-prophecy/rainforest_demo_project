@@ -8,7 +8,9 @@ from enrich_accounts.graph import *
 
 def pipeline(spark: SparkSession) -> None:
     df_food_dataset = food_dataset(spark)
-    df_Reformat_1 = Reformat_1(spark, df_food_dataset)
+    df_change_data_types = change_data_types(spark, df_food_dataset)
+    df_items_subtotal_by_date_and_store = items_subtotal_by_date_and_store(spark, df_change_data_types)
+    store_level_aggregation(spark, df_items_subtotal_by_date_and_store)
 
 def main():
     spark = SparkSession.builder\
